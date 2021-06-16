@@ -1,6 +1,7 @@
 const upBtn = document.querySelector('.up-button')
 const downBtn = document.querySelector('.down-butto')
 const sidebar = document.querySelector('.sidebar')
+const container = document.querySelector('.container')
 const mainSlide = document.querySelector('.main-slide')
 const slidesCount = mainSlide.querySelectorAll('div').length
 
@@ -29,5 +30,9 @@ function changeSlide(direction) {
     }
   }
 
-  mainSlide.style.transform = 'translateY(-2000px)'
+  const height = container.clientHeight
+
+  mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`
+
+  sidebar.style.transform = `translateY(${activeSlideIndex * height}px)`
 }
